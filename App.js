@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { View, ActivityIndicator } from "react-native";
+import { NativeBaseProvider, extendTheme } from "native-base";
+import { useFonts } from "expo-font";
+import DrawerNavigation from "./Components/NavigationComponents/DrawerNavigation"; 
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Itim: require('./assets/Itim/Itim-Regular.ttf'), 
+  });
+
+  if (!fontsLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
+ 
+  const theme = extendTheme({
+    text: {
+      fontFamily: 'Itim',  
+    },
+  });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider theme={theme}>
+      <DrawerNavigation />
+    </NativeBaseProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
