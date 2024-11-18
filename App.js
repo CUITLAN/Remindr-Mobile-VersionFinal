@@ -3,8 +3,13 @@ import { View, ActivityIndicator } from "react-native";
 import { NativeBaseProvider, extendTheme } from "native-base";
 import { useFonts } from "expo-font";
 import DrawerNavigation from "./Components/NavigationComponents/DrawerNavigation"; 
+import Login from "./screens/Login";
 import LoginSignUp from "./screens/Login-SignUp";
 import Register from "./screens/Register";
+import RegisterNumero from "./screens/RegisterNumero.js";
+import RegisterNumeroValidacion from "./screens/RegisterNumeroValidacion.js";
+
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Itim: require('./assets/Itim/Itim-Regular.ttf'), 
@@ -30,6 +35,6 @@ export default function App() {
   //    <DrawerNavigation />
   // </NativeBaseProvider>
    //  <LoginSignUp/>
-   <Register/>
+   <Login/>
   );
 }
