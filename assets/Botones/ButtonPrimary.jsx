@@ -12,7 +12,7 @@ const ButtonPrimary = ({ text, size = "md", onPress }) => {
         color: "white",
         fontWeight: "400",
         fontFamily: "Itim",
-        fontSize: 16,
+        fontSize: 18,
       }}
       onPress={onPress} 
     >
