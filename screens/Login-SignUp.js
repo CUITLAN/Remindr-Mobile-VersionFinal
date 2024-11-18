@@ -88,10 +88,12 @@ const LoginorSign = () => {
               <Link
                 // aca falta de el a donde te va a mandar Una vez que se precione
                 _text={{
-                  fontSize: "sm",
-                  fontWeight: "500",
-                  color: "blue.600",
+                  fontSize: "15",
+                  fontWeight: "400",
+                  color: "#007EFF",
+                  fontFamily: "Itim"
                 }}
+                height="35"
                 alignSelf="center"
                 mt="19"
               >
