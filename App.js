@@ -4,6 +4,7 @@ import { NativeBaseProvider, extendTheme } from "native-base";
 import { useFonts } from "expo-font";
 import DrawerNavigation from "./Components/NavigationComponents/DrawerNavigation"; 
 import LoginSignUp from "./screens/Login-SignUp";
+import Register from "./screens/Register";
 export default function App() {
   const [fontsLoaded] = useFonts({
     Itim: require('./assets/Itim/Itim-Regular.ttf'), 
@@ -28,6 +29,7 @@ export default function App() {
   //  <NativeBaseProvider theme={theme}>
   //    <DrawerNavigation />
   // </NativeBaseProvider>
-     <LoginSignUp/>
+   //  <LoginSignUp/>
+   <Register/>
   );
 }
