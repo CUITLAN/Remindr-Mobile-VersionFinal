@@ -16,19 +16,20 @@ import {
   Icon,
 } from "native-base";
 //Estos de aca son los iconos
-import CuentasIcon from "../../assets/icons/CuentasIcon"
+import CuentasIcon from "../../assets/icons/CuentasIcon";
 import EditarPerfil from "../../assets/icons/EditarPerfil";
-import  TareasIcon  from "../../assets/icons/TareasIcon";
+import TareasIcon from "../../assets/icons/TareasIcon";
 import ClasesIcon from "../../assets/icons/ClasesIcon";
 import NotificacionIcon from "../../assets/icons/NotificacionIcon";
 import CerrarSesion from "../../assets/icons/CerrarSesion";
+import { Fonts } from "../../constant/fonts";
 global.__reanimatedWorkletInit = () => {};
 const Drawer = createDrawerNavigator();
 //Esto es para definir el que hay dentro de cada caso Basicamente de aqui dependiendo del caso Cargaria una screen diferente
 function Component(props) {
   return (
     <Center>
-      <Text mt="12" fontSize="18">
+      <Text mt="12" fontSize="18" fontFamily={Fonts.Itim}>
         This is {props.route.name} page.
       </Text>
     </Center>
@@ -38,18 +39,18 @@ function Component(props) {
 // Estos son los iconos aca se le asigna a cada Nombre un icono
 const getIcon = (screenName) => {
   switch (screenName) {
-    case "Tareas": 
+    case "Tareas":
       return <TareasIcon />;
     case "Editar Perfil":
-      return <EditarPerfil/>;
+      return <EditarPerfil />;
     case "Clases":
-      return <ClasesIcon/>;
+      return <ClasesIcon />;
     case "Cuentas":
-      return <CuentasIcon/>;
+      return <CuentasIcon />;
     case "Notificaciones":
-      return <NotificacionIcon/>;
+      return <NotificacionIcon />;
     case "Cerrar Sesion":
-      return <CerrarSesion/>;
+      return <CerrarSesion />;
     default:
       return undefined;
   }
@@ -72,15 +73,22 @@ function CustomDrawerContent(props) {
                   props.navigation.navigate(name);
                 }}
               >
-                <HStack space="7" alignItems="center">
+                <HStack
+                  space={4} 
+                  justifyContent="left"
+                  gap={7} 
+                >
                   <Icon
                     color={index === props.state.index ? "black" : "#1F2937"}
                     size="5"
-                    as={getIcon(name)} // Usa el componente retornado por getIcon
+                    as={getIcon(name)} 
                   />
                   <Text
-                    fontWeight="500"
+                    fontWeight="400"
+                    fontSize="16px"
                     color={index === props.state.index ? "black" : "#1F2937"}
+                    fontFamily="Itim"
+                    lineHeight="20px"
                   >
                     {name}
                   </Text>
