@@ -7,9 +7,11 @@ import {
 import {
   NativeBaseProvider,
   Box,
+  View,
   Pressable,
   VStack,
   Text,
+  Image,
   Center,
   HStack,
   Divider,
@@ -30,7 +32,7 @@ function Component(props) {
   return (
     <Center>
       <Text mt="12" fontSize="18" fontFamily={Fonts.Itim}>
-        This is {props.route.name} page.
+        {props.route.name} page.
       </Text>
     </Center>
   );
@@ -73,15 +75,11 @@ function CustomDrawerContent(props) {
                   props.navigation.navigate(name);
                 }}
               >
-                <HStack
-                  space={4} 
-                  justifyContent="left"
-                  gap={7} 
-                >
+                <HStack space={4} justifyContent="left" gap={7}>
                   <Icon
                     color={index === props.state.index ? "black" : "#1F2937"}
                     size="5"
-                    as={getIcon(name)} 
+                    as={getIcon(name)}
                   />
                   <Text
                     fontWeight="400"
@@ -107,6 +105,29 @@ function MyDrawer() {
     <Box safeArea flex={1}>
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawerContent {...props} />}
+        
+        screenOptions={{
+          headerTitle: () => (
+            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+              <Image
+                source={require("../../assets/logo/Logo.png")}
+                alt="Logo"
+                style={{ width: 55, height: 49, marginRight: 10 }} 
+              />
+              <Text
+                style={{
+                  fontFamily: Fonts.Itim,
+                  fontSize: 24,
+                  fontWeight: "400",
+                  color: "#1F2937",
+                }}
+              >
+                Remindr
+              </Text>
+            </View>
+          ),
+          headerTitleAlign: "center", 
+        }}
       >
         <Drawer.Screen name="Tareas" component={Component} />
         <Drawer.Screen name="Editar Perfil" component={Component} />

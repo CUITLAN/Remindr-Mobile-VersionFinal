@@ -31,6 +31,7 @@ const LoginorSign = () => {
           alt="Este es el logo"
           size="xl"
         />
+        
       </Box>
 
       <Box
