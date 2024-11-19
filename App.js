@@ -32,9 +32,11 @@ export default function App() {
 
   return (
   //  <NativeBaseProvider theme={theme}>
-  //    <DrawerNavigation />
+    <DrawerNavigation />
   // </NativeBaseProvider>
-    <LoginSignUp/>
+    // <LoginSignUp/>
   //  <Login/>
+   // <LoginSignUp/>
+  //  <Register/>
   );
 }

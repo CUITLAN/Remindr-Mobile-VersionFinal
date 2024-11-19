@@ -7,9 +7,11 @@ import {
 import {
   NativeBaseProvider,
   Box,
+  View,
   Pressable,
   VStack,
   Text,
+  Image,
   Center,
   HStack,
   Divider,
@@ -23,6 +25,10 @@ import ClasesIcon from "../../assets/icons/ClasesIcon";
 import NotificacionIcon from "../../assets/icons/NotificacionIcon";
 import CerrarSesion from "../../assets/icons/CerrarSesion";
 import { Fonts } from "../../constant/fonts";
+import TareasScreen from "../../screens/TareasScreen";
+import CuentasScreen from "../../screens/CuentasScreen";
+import NotificacionesScreen from "../../screens/NotificacionesScreen";
+import ClasesScreen from "../../screens/ClasesScreen";
 global.__reanimatedWorkletInit = () => {};
 const Drawer = createDrawerNavigator();
 //Esto es para definir el que hay dentro de cada caso Basicamente de aqui dependiendo del caso Cargaria una screen diferente
@@ -30,7 +36,7 @@ function Component(props) {
   return (
     <Center>
       <Text mt="12" fontSize="18" fontFamily={Fonts.Itim}>
-        This is {props.route.name} page.
+        {props.route.name} page.
       </Text>
     </Center>
   );
@@ -59,7 +65,7 @@ const getIcon = (screenName) => {
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props} safeArea>
-      <VStack space="6" my="2" mx="1">
+      <VStack space="1" my="2" mx="1" >
         <VStack divider={<Divider />} space="4">
           <VStack space="3">
             {props.state.routeNames.map((name, index) => (
@@ -73,15 +79,11 @@ function CustomDrawerContent(props) {
                   props.navigation.navigate(name);
                 }}
               >
-                <HStack
-                  space={4} 
-                  justifyContent="left"
-                  gap={7} 
-                >
+                <HStack space={4} justifyContent="left" gap={7}>
                   <Icon
                     color={index === props.state.index ? "black" : "#1F2937"}
                     size="5"
-                    as={getIcon(name)} 
+                    as={getIcon(name)}
                   />
                   <Text
                     fontWeight="400"
@@ -106,13 +108,37 @@ function MyDrawer() {
   return (
     <Box safeArea flex={1}>
       <Drawer.Navigator
+      
         drawerContent={(props) => <CustomDrawerContent {...props} />}
+        
+        screenOptions={{
+          headerTitle: () => (
+            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+              <Image
+                source={require("../../assets/logo/Logo.png")}
+                alt="Logo"
+                style={{ width: 45, height: 39, marginRight: 10 }} 
+              />
+              <Text
+                style={{
+                  fontFamily: Fonts.Itim,
+                  fontSize: 24,
+                  fontWeight: "400",
+                  color: "#1F2937",
+                }}
+              >
+                Remindr
+              </Text>
+            </View>
+          ),
+          headerTitleAlign: "center", 
+        }}
       >
-        <Drawer.Screen name="Tareas" component={Component} />
+        <Drawer.Screen name="Tareas" component={TareasScreen} />
         <Drawer.Screen name="Editar Perfil" component={Component} />
-        <Drawer.Screen name="Clases" component={Component} />
-        <Drawer.Screen name="Cuentas" component={Component} />
-        <Drawer.Screen name="Notificaciones" component={Component} />
+        <Drawer.Screen name="Clases" component={ClasesScreen} />
+        <Drawer.Screen name="Cuentas" component={CuentasScreen} />
+        <Drawer.Screen name="Notificaciones" component={NotificacionesScreen} />
         <Drawer.Screen name="Cerrar Sesion" component={Component} />
       </Drawer.Navigator>
     </Box>
