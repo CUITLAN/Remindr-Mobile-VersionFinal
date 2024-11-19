@@ -27,9 +27,9 @@ export default function App() {
 
   return (
   //  <NativeBaseProvider theme={theme}>
-  //    <DrawerNavigation />
+    <DrawerNavigation />
   // </NativeBaseProvider>
-   //  <LoginSignUp/>
-   <Register/>
+   // <LoginSignUp/>
+  //  <Register/>
   );
 }
