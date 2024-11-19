@@ -25,6 +25,10 @@ import ClasesIcon from "../../assets/icons/ClasesIcon";
 import NotificacionIcon from "../../assets/icons/NotificacionIcon";
 import CerrarSesion from "../../assets/icons/CerrarSesion";
 import { Fonts } from "../../constant/fonts";
+import TareasScreen from "../../screens/TareasScreen";
+import CuentasScreen from "../../screens/CuentasScreen";
+import NotificacionesScreen from "../../screens/NotificacionesScreen";
+import ClasesScreen from "../../screens/ClasesScreen";
 global.__reanimatedWorkletInit = () => {};
 const Drawer = createDrawerNavigator();
 //Esto es para definir el que hay dentro de cada caso Basicamente de aqui dependiendo del caso Cargaria una screen diferente
@@ -61,7 +65,7 @@ const getIcon = (screenName) => {
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props} safeArea>
-      <VStack space="6" my="2" mx="1">
+      <VStack space="1" my="2" mx="1" >
         <VStack divider={<Divider />} space="4">
           <VStack space="3">
             {props.state.routeNames.map((name, index) => (
@@ -104,6 +108,7 @@ function MyDrawer() {
   return (
     <Box safeArea flex={1}>
       <Drawer.Navigator
+      
         drawerContent={(props) => <CustomDrawerContent {...props} />}
         
         screenOptions={{
@@ -112,7 +117,7 @@ function MyDrawer() {
               <Image
                 source={require("../../assets/logo/Logo.png")}
                 alt="Logo"
-                style={{ width: 55, height: 49, marginRight: 10 }} 
+                style={{ width: 45, height: 39, marginRight: 10 }} 
               />
               <Text
                 style={{
@@ -129,11 +134,11 @@ function MyDrawer() {
           headerTitleAlign: "center", 
         }}
       >
-        <Drawer.Screen name="Tareas" component={Component} />
+        <Drawer.Screen name="Tareas" component={TareasScreen} />
         <Drawer.Screen name="Editar Perfil" component={Component} />
-        <Drawer.Screen name="Clases" component={Component} />
-        <Drawer.Screen name="Cuentas" component={Component} />
-        <Drawer.Screen name="Notificaciones" component={Component} />
+        <Drawer.Screen name="Clases" component={ClasesScreen} />
+        <Drawer.Screen name="Cuentas" component={CuentasScreen} />
+        <Drawer.Screen name="Notificaciones" component={NotificacionesScreen} />
         <Drawer.Screen name="Cerrar Sesion" component={Component} />
       </Drawer.Navigator>
     </Box>
