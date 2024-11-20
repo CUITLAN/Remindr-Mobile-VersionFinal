@@ -57,7 +57,7 @@ const getIcon = (screenName) => {
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props} safeArea style={{ flex: 1 }} >
-  <VStack space="1" my="2" mx="1" flex={1} h={800}>
+  <VStack space="1" my="2" mx="1" flex={1} h={690}>
     {/* Contenedor para los botones de navegación */}
     <VStack divider={<Divider />} space="4" flex={1}>
       <VStack space="3">

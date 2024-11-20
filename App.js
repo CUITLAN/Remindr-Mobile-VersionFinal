@@ -33,13 +33,13 @@ export default function App() {
   return (
   //  <NativeBaseProvider theme={theme}>
 
-    //  <DrawerNavigation />
+      <DrawerNavigation />
   // </NativeBaseProvider>
    //  <LoginSignUp/>
-   //<RegisterNumero/>
-    <DrawerNavigation />
+   //<RegisterNumeroValidacion/>
+    //<DrawerNavigation />
   // </NativeBaseProvider>
-    // <LoginSignUp/>
+     //<LoginSignUp/>
     //<Login/>
    // <LoginSignUp/>
      //<Register/>

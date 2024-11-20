@@ -16,7 +16,7 @@ const ClasesCard = ({Cuenta="Analisis y diseño de software", Clase="Alanqwq7870
     <Box alignItems="center">
       <Box
       mt={3}
-        width="340"
+        width="110%"
         rounded="lg"
         maxH="118"
         display={"flex"}

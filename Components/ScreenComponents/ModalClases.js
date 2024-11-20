@@ -31,7 +31,7 @@ const ModalClases = () => {
       <Modal.CloseButton />
       {/* Encabezado del modal */}
       <Modal.Header
-        _text={{ fontFamily: "Itim", fontSize: "xl", textAlign: "center" }}
+        _text={{ fontFamily: "Itim", fontSize: "xl", textAlign: "left" }}
       >
         Analisis y diseño de software
       </Modal.Header>
