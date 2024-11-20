@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box, Text, Button } from "native-base";
 import ButtonRojo from "../../assets/Botones/ButtonBorrar"
+import ButtonTareas from "../../assets/Botones/ButtonTareas";
 const CuentasComponents = () => {
   const precionado= ()=>{
     console.log("Se preciono elboyon de eliminar la cuenta")
@@ -26,7 +27,7 @@ const CuentasComponents = () => {
         <Text fontSize="14px">Cuenta: alan78707@gmail.com</Text>
       </Box>
       {/* Este boton es el que tendria que abrir para agregar otra cuenta de google */}
-      <ButtonRojo onPress={precionado}/>
+      <ButtonTareas onPress={precionado}/>
     </Box>
   );
 };

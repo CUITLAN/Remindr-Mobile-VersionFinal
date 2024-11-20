@@ -1,24 +1,23 @@
 import * as React from "react";
-import { MaterialIcons } from "@expo/vector-icons";
+import TareasSinNotificacion from "../Components/ScreenComponents/TareasSinNotificacion";
+import TareasCommponents from "../Components/ScreenComponents/TareasComponents";
 import {
   Box,
+  Link,
+  Text,
   Divider,
   Heading,
   CheckIcon,
   Center,
   NativeBaseProvider,
-  Select
+  Select,
+  ScrollView,
 } from "native-base";
 import { Fonts } from "../constant/fonts";
+import TareasMuteadas from "../Components/ScreenComponents/TareasMuteadas";
 
 const TareasScreen = () => {
-  // Los hooks deben estar dentro del cuerpo del componente
   const [service, setService] = React.useState("");
- 
-
-  const handleButtonClick = () => {
-    console.log("Se preciono el boton de continuar");
-  };
 
   return (
     <Center w="100%" flex={1} bg="#f5e6ff">
@@ -57,21 +56,30 @@ const TareasScreen = () => {
             placeholder="Seleccione una Clase"
             _selectedItem={{
               bg: "#F5E3F9",
-              
-              endIcon: <CheckIcon size="5" />
+              endIcon: <CheckIcon size="5" />,
             }}
             mt={3}
             onValueChange={(itemValue) => setService(itemValue)}
           >
-            {/* Aca se tiene que modificar el Valor y incluso pues un fetch para que jale las clases del alumno por id */}
             <Select.Item label="Todos" value="ux" />
             <Select.Item label="Ciencia de Datos" value="web" />
             <Select.Item label="Topico 1" value="cross" />
             <Select.Item label="Analisis y Diseño de Software" value="ui" />
             <Select.Item label="Apps Mobiles" value="backend" />
           </Select>
-          {/* Incluso podriaos meter otro que sea para las tareas pero por cuenta  */}
         </Box>
+
+        <TareasSinNotificacion />
+
+        {/* Usamos flex y flexGrow para un comportamiento dinámico */}
+        <ScrollView style={{ flex: 1 }}>
+          <Box display="flex" flexDirection="column" space={4} padding={2} flexGrow={1}>
+            {/* <TareasCommponents />
+            <TareasMuteadas/>
+            */}
+            
+          </Box>
+        </ScrollView>
       </Box>
     </Center>
   );
