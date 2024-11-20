@@ -28,7 +28,7 @@ const ModalClases = () => {
   {/* Modal que se muestra al presionar la tarjeta */}
   <Modal isOpen={open} onClose={() => setOpen(false)} safeAreaTop={true}>
     <Modal.Content maxWidth="350">
-      
+      <Modal.CloseButton />
       {/* Encabezado del modal */}
       <Modal.Header
         _text={{ fontFamily: "Itim", fontSize: "xl", textAlign: "center" }}
@@ -78,7 +78,7 @@ const ModalClases = () => {
                 style={{ width: 34, height: 29, marginRight: 20 }}
               />
               <Text
-              ml={"45"}
+              ml={12}
                 style={{
                   fontSize: 20,
                   fontWeight: "400",
