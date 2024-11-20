@@ -7,9 +7,7 @@ import {
   NativeBaseProvider,
   ScrollView,
 } from "native-base";
-import ClasesCard from "../Components/ScreenComponents/ClasesComponents";
 import { useSelector } from "react-redux";
-import { Box, Divider, Heading, Center, NativeBaseProvider, ScrollView, View, Text} from "native-base";
 import { TouchableOpacity } from "react-native";
 import ClasesCard from '../Components/ScreenComponents/ClasesComponents';
 import ModalClases from "../Components/ScreenComponents/ModalClases";
