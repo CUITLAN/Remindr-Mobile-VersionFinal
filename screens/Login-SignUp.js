@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import {
   Box,
   Text,
@@ -17,10 +18,36 @@ import {
 import { Fonts } from "../constant/fonts";
 import ButtonPrimary from "../assets/Botones/ButtonPrimary";
 
+import { useDispatch } from "react-redux";
+import { loginUserAction } from "../actions/userActions";
+
 const LoginorSign = () => {
-    const handleButtonClick = () =>{
-        console.log("Se preciono el boton")
+  // Set the state of the email and password
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // Set the dispatch
+  const dispatch = useDispatch();
+  const loginUser = user => dispatch(loginUserAction(user));
+
+  const handleButtonClick = async e => {
+    e.preventDefault();
+
+    if (email.trim() === '' || password.trim() === '') {
+        Alert.alert(
+            'Campos faltantes',
+            'Por favor completa ambos campos para iniciar sesión.'
+        );
+        return;
     }
+
+    try {
+        const log = await loginUser({ email, password });
+        console.log(log);
+    } catch (error) {
+        Alert.alert('Error', 'No se pudo iniciar sesión. Inténtalo de nuevo.');
+    }
+  }
 
   return (
     <Center w="100%" flex={1} bg="#f5e6ff">
@@ -31,7 +58,7 @@ const LoginorSign = () => {
           alt="Este es el logo"
           size="xl"
         />
-        
+
       </Box>
 
       <Box
@@ -66,6 +93,8 @@ const LoginorSign = () => {
               _focus={{
                 borderColor: "#d183fc",
               }}
+              value={email}
+              onChangeText={text => setEmail(text)}
             />
           </FormControl>
           <FormControl>
@@ -79,9 +108,11 @@ const LoginorSign = () => {
               _focus={{
                 borderColor: "#d183fc",
               }}
+              value={password}
+              onChangeText={text => setPassword(text)}
             />
             <Box mt="68">
-                {/* igual aca falta que cuando se precione el boton se compare los datos y se mande a iniciar sesion */}
+              {/* igual aca falta que cuando se precione el boton se compare los datos y se mande a iniciar sesion */}
               <ButtonPrimary
                 text={"Iniciar Sesion"}
                 onPress={handleButtonClick}
@@ -102,7 +133,7 @@ const LoginorSign = () => {
               </Link>
             </Box>
           </FormControl>
-          
+
         </VStack>
       </Box>
     </Center>

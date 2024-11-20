@@ -1,9 +1,12 @@
 import * as React from "react";
-import { Box, Divider, Heading, Center, NativeBaseProvider, ScrollView, Button } from "native-base";
+import { useSelector } from "react-redux";
+import { Box, Divider, Heading, Center, NativeBaseProvider, ScrollView, Button, View, Text } from "native-base";
+import { TouchableOpacity } from "react-native";
 import CuentasComponents from "../Components/ScreenComponents/CuentasComponents";
 import ButtonSecondary from "../assets/Botones/ButtonSecondary";
 
 const CuentasScreen = () => {
+  const googleAccounts = useSelector((state) => state.googleAccounts.googleAccount);
   const presionado = () =>{
     console.log("Se preciono el agregar cuenta")
   }
@@ -35,7 +38,19 @@ const CuentasScreen = () => {
         <Divider my="2" bg="#9A9A9A" />
 
         <ScrollView flex={1}> 
-          {/* Se tendria que hacer el mapeo para que saque el cuentasComponent de cada cuenta */}
+          {googleAccounts?.map((account) =>
+              <View style={styles.taskCard} key={account._id}>
+                <View>
+                  <Text style={styles.taskTitle}>{account.nombreGoogle}</Text>
+                  <Text style={styles.taskDescription}>
+                    Email: {account.googleMail}
+                  </Text>
+                </View>
+                <TouchableOpacity style={styles.button}>
+                  <Text style={styles.buttonText}>Eliminar</Text>
+                </TouchableOpacity>
+              </View>
+          )}
           <Box display="flex" flexDirection="column" space={4} padding={2}>
             <CuentasComponents />
             <CuentasComponents />
@@ -57,3 +72,39 @@ export default () => (
     <CuentasScreen />
   </NativeBaseProvider>
 );
+
+const styles = {
+  taskCard: {
+    backgroundColor: "#fff",
+    padding: 16,
+    marginBottom: 8,
+    borderRadius: 8,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  taskTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 4,
+  },
+  taskDescription: {
+    fontSize: 14,
+    color: "#555",
+  },
+  button: {
+    marginTop: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    backgroundColor: "#d183fc",
+    borderRadius: 4,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
+};
+

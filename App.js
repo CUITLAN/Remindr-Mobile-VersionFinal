@@ -1,21 +1,50 @@
 import * as React from "react";
-import { View, ActivityIndicator } from "react-native";
+import { useState, useEffect } from "react";
+import { View, ActivityIndicator, Text } from "react-native";
+import { Provider } from "react-redux";
+
+import initializeStore from "./Store.js";
 import { NativeBaseProvider, extendTheme } from "native-base";
 import { useFonts } from "expo-font";
 import DrawerNavigation from "./Components/NavigationComponents/DrawerNavigation"; 
-import Login from "./screens/Login";
-import LoginSignUp from "./screens/Login-SignUp";
-import Register from "./screens/Register";
-import RegisterNumero from "./screens/RegisterNumero.js";
-import RegisterNumeroValidacion from "./screens/RegisterNumeroValidacion.js";
-
 
 export default function App() {
+  const [store, setStore] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const setupStore = async () => {
+      try {
+        const initializedStore = await initializeStore();
+        setStore(initializedStore);
+      } catch (err) {
+        console.error("Error initializing store:", err);
+        setError("No se pudo inicializar la aplicación.");
+      }
+    };
+
+    setupStore();
+  }, []);
+
   const [fontsLoaded] = useFonts({
-    Itim: require('./assets/Itim/Itim-Regular.ttf'), 
+    Itim: require('./assets/Itim/Itim-Regular.ttf'),
   });
 
-  if (!fontsLoaded) {
+  const theme = extendTheme({
+    text: {
+      fontFamily: 'Itim',
+    },
+  });
+
+  if (error) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>{error}</Text>
+      </View>
+    );
+  }
+
+  if (!store || !fontsLoaded) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" />
@@ -23,20 +52,11 @@ export default function App() {
     );
   }
 
- 
-  const theme = extendTheme({
-    text: {
-      fontFamily: 'Itim',  
-    },
-  });
-
   return (
-  //  <NativeBaseProvider theme={theme}>
-    <DrawerNavigation />
-  // </NativeBaseProvider>
-    // <LoginSignUp/>
-  //  <Login/>
-   // <LoginSignUp/>
-  //  <Register/>
+    <Provider store={store}>
+      <NativeBaseProvider theme={theme}>
+        <DrawerNavigation />
+      </NativeBaseProvider>
+    </Provider>
   );
 }
