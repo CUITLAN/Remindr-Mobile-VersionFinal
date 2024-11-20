@@ -35,8 +35,8 @@ export default function App() {
     <DrawerNavigation />
   // </NativeBaseProvider>
     // <LoginSignUp/>
-  //  <Login/>
+    //<Login/>
    // <LoginSignUp/>
-  //  <Register/>
+     //<Register/>
   );
 }
