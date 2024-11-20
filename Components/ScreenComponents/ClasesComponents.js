@@ -11,12 +11,12 @@ import {
   NativeBaseProvider,
 } from 'native-base';
 // EN ESTE COMPONENTE TENDRIA QUE HABER UN MAP IGUAL PARA QUE TODO JALE , SE TIENE QUE MODIFICAR EL PROP PARA QUE SE RECIBAN LOS DAOTS
-const ClasesCard = ({Cuenta="Analisis y diseño de software 18", Clase="Alan78707@gmail.com"}) => {
+const ClasesCard = ({Cuenta="Analisis y diseño de software", Clase="Alanqwq78707@gmaidfdfdl.com"}) => {
   return (
     <Box alignItems="center">
       <Box
       mt={3}
-        width="340"
+        width="110%"
         rounded="lg"
         maxH="118"
         display={"flex"}

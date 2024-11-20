@@ -12,18 +12,15 @@ const NotificacioneScreen = () => {
     <Center w="100%" flex={1} bg="#f5e6ff">
       <Box
         p="4"
-        pb="10"
-        mb="393"
-        ml="10"
-        mr="10"
-        height="421"
+        flex={1}
         w="90%"
+        mb="5%"
+        pb="5"
         maxW="392"
         bg="white"
         borderRadius="10"
         shadow={2}
-        mt="20"
-        justifyContent="space-between" 
+        mt="5%" 
       >
         <Heading
           size="lg"

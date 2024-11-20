@@ -14,18 +14,15 @@ const CuentasScreen = () => {
     <Center w="100%" flex={1} bg="#f5e6ff">
       <Box
         p="4"
-        pb="16"
-        mb="116"
-        ml="10"
-        mr="10"
-        height="723"
+        flex={1}
         w="90%"
+        mb="5%"
+        pb="5"
         maxW="392"
         bg="white"
         borderRadius="10"
         shadow={2}
-        mt="95px"
-        justifyContent="space-between" 
+        mt="5%"
       >
         <Heading
           size="lg"

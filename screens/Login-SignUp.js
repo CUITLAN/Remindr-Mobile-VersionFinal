@@ -50,8 +50,8 @@ const LoginorSign = () => {
   }
 
   return (
-    <Center w="100%" flex={1} bg="#f5e6ff">
-      <Box mb="2">
+    <Center w="100%"  flex={1} bg="#f5e6ff">
+      <Box mb="2" >
         <Image
           shadow={2}
           source={require("../assets/logo/Logo.png")}
@@ -65,7 +65,7 @@ const LoginorSign = () => {
         safeArea
         p="4"
         mb="162"
-        height="568"
+        height="40%"
         w="90%"
         maxW="392"
         bg="white"
