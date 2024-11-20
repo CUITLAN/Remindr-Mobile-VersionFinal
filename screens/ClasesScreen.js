@@ -6,6 +6,8 @@ import {
   Center,
   NativeBaseProvider,
   ScrollView,
+  View,
+  Text,
 } from "native-base";
 import { useSelector } from "react-redux";
 import { TouchableOpacity } from "react-native";
