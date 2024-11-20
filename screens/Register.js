@@ -28,14 +28,14 @@ const Register = () => {
   const [show, setShow] = React.useState(false);
 
   return (
-    <Center w="100%" flex={1} bg="#f5e6ff">
+    <Center w="100%" flex={1} bg="#f5e6ff" >
       <Box
         safeArea
-        p="4"
+        p="1"
         mb="116"
         ml="10"
         mr="10"
-        height="723"
+        height="85%"
         w="90%"
         maxW="392"
         bg="white"
