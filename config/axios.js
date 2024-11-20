@@ -3,7 +3,7 @@ const apiToken = process.env.REACT_APP_API_TOKEN;
 const apiURL = process.env.REACT_APP_API_URL;
 
 const clienteAxios = axios.create({
-    baseURL:process.env.REACT_APP_API_URL,
+    baseURL:'https://remindr-app-732235378249.us-central1.run.app/',
 });
 
 export default clienteAxios;
